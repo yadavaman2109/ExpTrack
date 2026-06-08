@@ -1,6 +1,8 @@
 require("dotenv").config();
-const dns = require("dns");
-dns.setServers(["8.8.8.8"]);
+if (!process.env.VERCEL) {
+    const dns = require("dns");
+    dns.setServers(["8.8.8.8"]);
+}
 
 const express = require("express");
 const cors = require("cors");
@@ -36,5 +38,9 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("✅ MongoDB connected"))
     .catch(err => console.error("❌", err));
 
-app.listen(process.env.PORT || 5000,
-    () => console.log(`🚀 Server on port ${process.env.PORT || 5000}`));
+if (!process.env.VERCEL) {
+    app.listen(process.env.PORT || 5000,
+        () => console.log(`🚀 Server on port ${process.env.PORT || 5000}`));
+}
+
+module.exports = app;

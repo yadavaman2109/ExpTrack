@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/(auth|expenses|income|analytics|budget|import|coach)(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
+}
