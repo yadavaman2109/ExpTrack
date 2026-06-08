@@ -7,7 +7,9 @@ const ExpenseItemSchema = new mongoose.Schema({
         enum: ["Food", "Travel", "Shopping", "Health", "Entertainment", "Bills", "Education", "Other"]
     },
     date: { type: Date, default: Date.now },
-    note: { type: String, default: "" }
+    note: { type: String, default: "" },
+    merchant: { type: String, default: "" },
+    source: { type: String, default: "manual" }
 });
 
 const ExpenseDocSchema = new mongoose.Schema({

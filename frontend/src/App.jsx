@@ -28,7 +28,7 @@ export default function App() {
 
   if (loading) return (
     <div className="splash">
-      <div className="splash-logo">FA</div>
+      <img src="/logo.png" alt="Jeb Track Logo" style={{ width: "56px", height: "56px", borderRadius: "14px", objectFit: "cover", animation: "pulse 1.2s ease-in-out infinite" }} />
     </div>
   );
 

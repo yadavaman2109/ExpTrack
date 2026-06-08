@@ -7,7 +7,9 @@ const IncomeItemSchema = new mongoose.Schema({
         enum: ["Salary", "Freelance", "Business", "Investment", "Gift", "Other"]
     },
     date: { type: Date, default: Date.now },
-    note: { type: String, default: "" }
+    note: { type: String, default: "" },
+    merchant: { type: String, default: "" },
+    importSource: { type: String, default: "manual" }
 });
 
 const IncomeDocSchema = new mongoose.Schema({

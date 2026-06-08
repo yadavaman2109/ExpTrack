@@ -22,6 +22,10 @@ api.interceptors.response.use(
 
 export const register = (data) => api.post("/auth/register", data);
 export const login = (data) => api.post("/auth/login", data);
+export const checkEmail = (email) => api.post("/auth/check-email", { email });
+export const sendOtp = (email) => api.post("/auth/send-otp", { email });
+export const verifyOtp = (email, otp) => api.post("/auth/verify-otp", { email, otp });
+export const completeProfile = (data) => api.post("/auth/complete-profile", data);
 export const getMe = () => api.get("/auth/me");
 
 export const addExpense = (data) => api.post("/expenses/add", data);
@@ -42,3 +46,6 @@ export const getTopCategories = () => api.get("/analytics/top");
 
 export const setBudget = (data) => api.post("/budget/set", data);
 export const getBudgetStatus = (month) => api.get("/budget/status", { params: { month } });
+
+export const getHealthScore = (month) => api.get("/coach/health-score", { params: { month } });
+export const askCoach = (message, history) => api.post("/coach/chat", { message, history });

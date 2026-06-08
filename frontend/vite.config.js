@@ -10,6 +10,8 @@ export default defineConfig({
       '/budget': 'http://localhost:5000',
       '/auth': 'http://localhost:5000',
       '/income': 'http://localhost:5000',
+      '/import': 'http://localhost:5000',
+      '/coach': 'http://localhost:5000',
     }
   }
 })
