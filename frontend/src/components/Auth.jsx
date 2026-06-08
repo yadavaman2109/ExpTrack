@@ -57,7 +57,8 @@ export default function Auth({ onLogin }) {
                 }
             }
         } catch (err) {
-            setError(err.response?.data?.error || "Something went wrong");
+            const errData = err.response?.data?.error;
+            setError(typeof errData === "object" ? (errData.message || JSON.stringify(errData)) : (errData || "Something went wrong"));
         } finally { setLoading(false); }
     };
 
@@ -69,7 +70,8 @@ export default function Auth({ onLogin }) {
             setTimer(60);
             setOtpCode("");
         } catch (err) {
-            setError(err.response?.data?.error || "Failed to resend code");
+            const errData = err.response?.data?.error;
+            setError(typeof errData === "object" ? (errData.message || JSON.stringify(errData)) : (errData || "Failed to resend code"));
         } finally { setLoading(false); }
     };
 
