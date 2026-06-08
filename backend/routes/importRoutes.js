@@ -267,10 +267,9 @@ router.post("/upload", auth, upload.single("file"), async (req, res) => {
             }
         } else if (filename.endsWith(".pdf")) {
             // PDF parser
-            const { PDFParse } = require("pdf-parse");
+            const pdf = require("pdf-parse");
             const dataBuffer = fs.readFileSync(filePath);
-            const parser = new PDFParse(new Uint8Array(dataBuffer));
-            const pdfData = await parser.getText();
+            const pdfData = await pdf(dataBuffer);
             const lines = pdfData.text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
             console.log("PDF parsed successfully. Total lines:", lines.length);
             console.log("First 15 lines preview:", lines.slice(0, 15));
