@@ -4,13 +4,14 @@ const multer = require("multer");
 const xlsx = require("xlsx");
 const axios = require("axios");
 const fs = require("fs");
+const os = require("os");
 const ExpenseDoc = require("../models/ExpenseDocument");
 const IncomeDoc = require("../models/IncomeDocument");
 const Transaction = require("../models/Transaction");
 
 // Multer Setup
 const upload = multer({
-    dest: "uploads/",
+    dest: os.tmpdir(),
     limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
 });
 
